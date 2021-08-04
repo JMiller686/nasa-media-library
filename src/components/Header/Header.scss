@@ -1,0 +1,38 @@
+header {
+    background: url('../../header-bg.jpeg');
+    height: 300px;
+    padding: 3em;
+
+    @media screen and (max-width: 767px) {
+        height: 250px;
+        padding: 2em;
+    }
+
+    .header-content {
+        width: 75%;
+        max-width: 960px;
+        margin: 0 auto;
+
+        @media screen and (max-width: 767px) {
+            width: 100%;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 1.5rem;
+            width: 10em;
+            margin-bottom: 1.5em;
+
+            .logo {
+                width: 100px;
+                flex: 0 0 100px;
+            }
+
+            span {
+                line-height: 1.2;
+            }
+        }
+    }
+}

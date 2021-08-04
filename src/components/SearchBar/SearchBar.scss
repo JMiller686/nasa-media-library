@@ -1,0 +1,54 @@
+@import '../../base.scss';
+
+.search-wrap {
+    position: relative;
+    border-radius: 10px;
+    
+
+    &:focus,
+        &:focus-within,
+        &:active {
+            box-shadow: 0 0 15px rgba(255,255,255, 0.5);
+        }
+
+    input {
+        border: 3px solid $blue;
+
+        &:focus,
+        &:focus-within,
+        &:active {
+            border-color: $blue;
+            box-shadow: none !important;
+        }
+    }
+
+    button {
+        background: $blue;
+        border: 3px solid $blue;
+        display: flex;
+        align-items: center;
+        padding: .8rem 1.25rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+        &:hover,
+        &:focus,
+        &:focus-within,
+        &:active {
+            background: $blue;
+            border-color: $blue;
+            box-shadow: none !important;
+
+            input {
+                box-shadow: none !important;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            padding: .8rem 1rem;
+        }
+    }
+}
