@@ -5,11 +5,17 @@ import { IoSearch } from "react-icons/io5";
 
 import './SearchBar.scss';
 
-const SearchBar = () => {
+const SearchBar = ({onSearch, searchParam}) => {
     return (
         <Form>
             <div className='search-wrap'>
-                <Form.Control size="lg" type="text" placeholder='Search for ...(e.g. "Gemini")' className="search-bar" />
+                <Form.Control 
+                    size="lg" 
+                    type="text" 
+                    value={searchParam}
+                    placeholder='Search for ...(e.g. "Gemini")' 
+                    className="search-bar" 
+                    onChange={onSearch}/>
                 <Button size="lg" className="searchButton"><IoSearch /></Button>
             </div>
         </Form> 

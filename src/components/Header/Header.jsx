@@ -3,7 +3,7 @@ import Logo from '../../NASA-Logo-PNG.png';
 
 import './Header.scss';
 
-const Header = () => {
+const Header = ({onSearch, searchParam}) => {
     return (
         <header>
             <div className="header-content">
@@ -12,7 +12,7 @@ const Header = () => {
                 <span>Josh's Space Library</span>
             </div>
                 
-                <SearchBar/>
+                <SearchBar onSearch={onSearch} searchParam={searchParam}/>
             </div>
         </header>
     )

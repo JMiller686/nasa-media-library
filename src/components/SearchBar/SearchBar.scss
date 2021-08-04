@@ -3,13 +3,14 @@
 .search-wrap {
     position: relative;
     border-radius: 10px;
+    margin: 80px 0 100px;
     
 
     &:focus,
-        &:focus-within,
-        &:active {
-            box-shadow: 0 0 15px rgba(255,255,255, 0.5);
-        }
+    &:focus-within,
+    &:active {
+        box-shadow: 0 0 15px rgba(255,255,255, 0.5);
+    }
 
     input {
         border: 3px solid $blue;
