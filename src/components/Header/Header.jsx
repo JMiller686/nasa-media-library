@@ -1,4 +1,4 @@
-import Logo from '../../NASA-Logo-PNG.png';
+import Logo from '../../assets/images/NASA-Logo-PNG.png';
 
 import './Header.scss';
 
