@@ -1,9 +1,8 @@
-import SearchBar from '../SearchBar/SearchBar';
 import Logo from '../../NASA-Logo-PNG.png';
 
 import './Header.scss';
 
-const Header = ({onSearch, searchParam}) => {
+const Header = ({children}) => {
     return (
         <header>
             <div className="header-content">
@@ -11,8 +10,7 @@ const Header = ({onSearch, searchParam}) => {
                 <img src={Logo} alt="logo" className="logo"/>
                 <span>Josh's Space Library</span>
             </div>
-                
-                <SearchBar onSearch={onSearch} searchParam={searchParam}/>
+                {children}
             </div>
         </header>
     )

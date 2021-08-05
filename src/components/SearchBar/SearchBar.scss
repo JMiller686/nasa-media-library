@@ -4,7 +4,6 @@
     position: relative;
     border-radius: 10px;
     margin: 80px 0 100px;
-    
 
     &:focus,
     &:focus-within,
@@ -51,5 +50,9 @@
         @media screen and (max-width: 767px) {
             padding: .8rem 1rem;
         }
+    }
+
+    @media screen and (max-width: 767px) {
+        margin: 40px 0;
     }
 }
