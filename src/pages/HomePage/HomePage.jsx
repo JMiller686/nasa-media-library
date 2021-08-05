@@ -6,7 +6,6 @@ const HomePage = ({images, loading}) => {
 
     return (
         <div>
-            <h2></h2>
             {loading ? <Loading /> : <MasonryGrid images={images}/>}
         </div>
     )
