@@ -17,17 +17,15 @@ const MasonryGrid = ({images}) => {
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column">
             {images.items.map((image, index) => {
-                if(index < 20) {
-                    if(image.links !== undefined) {
-                        return(
-                            <div key={index}>
-                                <img 
-                                    src={image.links[0].href} 
-                                    alt={image.data[0].description} 
-                                    className='masonry-img'/>
-                            </div>
-                        )
-                    }
+                if(image.links !== undefined) {
+                    return(
+                        <div key={index}>
+                            <img 
+                                src={image.links[0].href} 
+                                alt={image.data[0].description} 
+                                className='masonry-img'/>
+                        </div>
+                    )
                 }
             })}
         </Masonry>

@@ -4,13 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/Header/Header';
 import SearchBar from './components/SearchBar/SearchBar';
+import QueryResultInfo from './components/QueryResultInfo/QueryResultInfo.jsx';
 
 import HomePage from './pages/HomePage/HomePage';
 
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentSearch, setCurrentSearch] = useState('');
   const [loading,setLoading] = useState(true);
+  const [initialLoad,setInitialLoad] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -24,9 +27,10 @@ function App() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    setCurrentSearch(searchQuery);
     setSearchQuery('');
     fetchData(searchQuery);
-    setLoading(false);
+    setInitialLoad(false);
   }
 
   const fetchData = async (query = 'planet') => {
@@ -43,6 +47,8 @@ function App() {
       .catch(err => console.log('err', err))
   }
 
+  console.log(data);
+
   return (
     <div id="app">
       <Header>
@@ -53,6 +59,7 @@ function App() {
       </Header>
 
       <div className="page-content">
+        {!initialLoad ? <QueryResultInfo currentSearch={currentSearch} data={data}/> : null}
         <HomePage images={data} loading={loading}/>
       </div>
       
