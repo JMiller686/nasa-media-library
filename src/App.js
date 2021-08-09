@@ -15,6 +15,7 @@ function App() {
   const [loading,setLoading] = useState(true);
   const [initialLoad,setInitialLoad] = useState(true);
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     fetchData();
@@ -33,6 +34,22 @@ function App() {
     setInitialLoad(false);
   }
 
+  const handlePageChange = (e) => {
+    const queryParam = e.target.getAttribute('data-page');
+    const toggleType = e.target.getAttribute('data-page-toggle');
+        
+    window.scrollTo(0,0);
+    
+    if(toggleType === 'next') {
+      setPage(page + 1);
+    } else if(toggleType === 'prev') {
+      setPage(page - 1);
+    }
+    
+    setLoading(true);
+    fetchData(queryParam);
+  }
+
   const fetchData = async (query = 'planet') => {
     await fetch(`https://images-api.nasa.gov/search?q=${query}`)
       .then(res => {
@@ -47,8 +64,6 @@ function App() {
       .catch(err => console.log('err', err))
   }
 
-  console.log(data);
-
   return (
     <div id="app">
       <Header>
@@ -59,8 +74,8 @@ function App() {
       </Header>
 
       <div className="page-content">
-        {!initialLoad ? <QueryResultInfo currentSearch={currentSearch} data={data}/> : null}
-        <HomePage images={data} loading={loading}/>
+        {!initialLoad ? <QueryResultInfo currentSearch={currentSearch} data={data} page={page}/> : null}
+        <HomePage data={data} loading={loading} initialLoad={initialLoad} handlePageChange={handlePageChange}/>
       </div>
       
     </div>
