@@ -1,0 +1,16 @@
+.next-prev-toggles {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        background-color: #3f424c;
+        border: 1px solid #1c1c1f;
+        color: #ccc;
+        margin: 0 5px;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
